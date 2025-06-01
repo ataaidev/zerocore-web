@@ -1,4 +1,24 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Zero Core Studio
+
+Modern digital solutions and web development.
+
+**Built with:**
+- Next.js 15
+- React 19
+- TypeScript
+- Tailwind CSS
+- Google Analytics
+
+**Features:**
+- ✅ Modern responsive design
+- ✅ SEO optimized
+- ✅ Google Analytics tracking
+- ✅ Contact tracking
+- ✅ Performance optimized
+
+## Deploy Status: ✅ Cloudflare Ready
+
+Last updated: December 19, 2024
 
 ## Getting Started
 

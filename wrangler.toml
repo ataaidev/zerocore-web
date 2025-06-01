@@ -1,0 +1,26 @@
+name = "zero-core-studio"
+compatibility_date = "2024-12-19"
+
+[build]
+command = "npm ci && npm run build"
+cwd = "."
+watch_dir = "src"
+
+[build.upload]
+format = "directory"
+dir = ".next"
+
+# Force NPM usage
+[env]
+NODE_VERSION = "22.15.1"
+NPM_VERSION = "10.9.2"
+YARN_ENABLED = "false"
+SKIP_YARN_COREPACK = "true"
+
+# Development environment
+[env.development]
+NODE_ENV = "development"
+
+# Production environment  
+[env.production]
+NODE_ENV = "production" 

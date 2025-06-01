@@ -3,11 +3,14 @@ export const SITE_NAME = 'Zero Core Studio';
 export const SITE_DESCRIPTION = 'Creating innovative digital solutions for modern businesses';
 export const SITE_URL = 'https://zerocoregroup.com';
 
+// Google Analytics
+export const GA_MEASUREMENT_ID = 'G-8B2GJ61H5T';
+
 // Company information
 export const COMPANY_NAME = 'Zero Core Studio LLC';
 export const COMPANY_EMAIL = 'contact@zerocoregroup.com';
-export const COMPANY_PHONE = '+1 (123) 456-7890';
-export const COMPANY_ADDRESS = '123 Innovation Street, Tech City, TC 12345';
+export const COMPANY_PHONE = '+1 (302) 555-0123';
+export const COMPANY_ADDRESS = '112 Capitol Trail Suite A1598 Newark DE 19711';
 
 // Social media links
 export const SOCIAL_LINKS = {

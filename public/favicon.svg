@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 200 200" fill="none">
+  <defs>
+    <linearGradient id="coreGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3B82F6" />
+      <stop offset="100%" stop-color="#1E40AF" />
+    </linearGradient>
+    <radialGradient id="glowGradient" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+      <stop offset="0%" stop-color="#60A5FA" stop-opacity="0.6" />
+      <stop offset="100%" stop-color="#3B82F6" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+  
+  <!-- Background glow effect -->
+  <circle cx="100" cy="100" r="90" fill="url(#glowGradient)" />
+  
+  <!-- Main outer circle -->
+  <circle cx="100" cy="100" r="80" fill="url(#coreGradient)" stroke="#111827" stroke-width="2" />
+  
+  <!-- Inner core circles -->
+  <circle cx="100" cy="100" r="60" fill="#111827" stroke="#60A5FA" stroke-width="2" />
+  <circle cx="100" cy="100" r="40" fill="url(#coreGradient)" stroke="#111827" stroke-width="2" />
+  <circle cx="100" cy="100" r="20" fill="#111827" stroke="#60A5FA" stroke-width="2" />
+  
+  <!-- Center dot -->
+  <circle cx="100" cy="100" r="5" fill="white" />
+</svg>

@@ -1,7 +1,29 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  /* Cloudflare Pages için optimizasyonlar */
+  output: 'export',
+  trailingSlash: true,
+  skipTrailingSlashRedirect: true,
+  distDir: 'out',
+  
+  // Static dosyalar için optimizasyon
+  assetPrefix: '',
+  
+  // Image optimizasyonunu devre dışı bırak (static export için)
+  images: {
+    unoptimized: true,
+  },
+  
+  // Webpack konfigürasyonu
+  webpack: (config) => {
+    // CSS dosyalarının doğru şekilde yüklenmesi için
+    config.resolve.fallback = {
+      ...config.resolve.fallback,
+      fs: false,
+    };
+    return config;
+  },
 };
 
 export default nextConfig;

@@ -1,15 +1,15 @@
 // Site metadata
 export const SITE_NAME = 'Zero Core Studio';
 export const SITE_DESCRIPTION = 'Creating innovative digital solutions for modern businesses';
-export const SITE_URL = 'https://zerocoregroup.com';
+export const SITE_URL = 'https://zero-core.com';
 
 // Google Analytics
 export const GA_MEASUREMENT_ID = 'G-8B2GJ61H5T';
 
 // Company information
 export const COMPANY_NAME = 'Zero Core Studio LLC';
-export const COMPANY_EMAIL = 'contact@zerocoregroup.com';
-export const COMPANY_PHONE = '+1 (302) 555-0123';
+export const COMPANY_EMAIL = 'contact@zero-core.com';
+export const COMPANY_PHONE = '+372 595 98 548';
 export const COMPANY_ADDRESS = '112 Capitol Trail Suite A1598 Newark DE 19711';
 
 // Social media links
@@ -23,7 +23,5 @@ export const SOCIAL_LINKS = {
 export const NAV_LINKS = [
   { name: 'Home', href: '#hero' },
   { name: 'About', href: '#about' },
-  { name: 'Services', href: '#services' },
-  { name: 'Projects', href: '#projects' },
   { name: 'Contact', href: '#contact' },
 ]; 

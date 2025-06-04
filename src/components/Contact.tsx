@@ -14,13 +14,13 @@ export default function Contact() {
   };
 
   return (
-    <section id="contact" className="py-20 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900">
+    <section id="contact" className="py-20 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 font-sans">
       <div className="max-w-6xl w-full mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
-          <h2 className="text-4xl sm:text-5xl font-bold text-white mb-4">
+          <h2 className="text-4xl sm:text-5xl font-bold text-white mb-4 font-sans">
             Contact <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-500">Us</span>
           </h2>
-          <p className="text-xl text-gray-300 max-w-2xl mx-auto">
+          <p className="text-xl text-gray-300 max-w-2xl mx-auto font-sans">
             Ready to start your next project? Get in touch with our team and let us bring your vision to life.
           </p>
         </div>
@@ -34,8 +34,8 @@ export default function Contact() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
               </svg>
             </div>
-            <h3 className="text-xl font-semibold text-white mb-3">Address</h3>
-            <p className="text-gray-300 leading-relaxed">
+            <h3 className="text-xl font-semibold text-white mb-3 font-sans">Address</h3>
+            <p className="text-gray-300 leading-relaxed font-sans">
               {COMPANY_ADDRESS.split(' ').slice(0, 3).join(' ')}<br />
               {COMPANY_ADDRESS.split(' ').slice(3, 5).join(' ')}<br />
               {COMPANY_ADDRESS.split(' ').slice(5).join(' ')}
@@ -49,11 +49,11 @@ export default function Contact() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 4.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
               </svg>
             </div>
-            <h3 className="text-xl font-semibold text-white mb-3">Email</h3>
+            <h3 className="text-xl font-semibold text-white mb-3 font-sans">Email</h3>
             <a 
               href={`mailto:${COMPANY_EMAIL}`} 
               onClick={handleEmailClick}
-              className="text-gray-300 hover:text-blue-400 transition-colors duration-300"
+              className="text-gray-300 hover:text-blue-400 transition-colors duration-300 font-sans"
             >
               {COMPANY_EMAIL}
             </a>
@@ -66,11 +66,11 @@ export default function Contact() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
               </svg>
             </div>
-            <h3 className="text-xl font-semibold text-white mb-3">Phone</h3>
+            <h3 className="text-xl font-semibold text-white mb-3 font-sans">Phone</h3>
             <a 
               href={`tel:${COMPANY_PHONE.replace(/\s/g, '').replace(/[()]/g, '')}`} 
               onClick={handlePhoneClick}
-              className="text-gray-300 hover:text-blue-400 transition-colors duration-300"
+              className="text-gray-300 hover:text-blue-400 transition-colors duration-300 font-sans"
             >
               {COMPANY_PHONE}
             </a>

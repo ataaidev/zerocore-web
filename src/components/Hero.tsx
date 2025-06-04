@@ -3,7 +3,7 @@ import Image from 'next/image';
 
 export default function Hero() {
   return (
-    <section id="hero" className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white relative overflow-hidden">
+    <section id="hero" className="min-h-screen flex items-center justify-center bg-gradient-to-br from-gray-900 via-gray-800 to-black text-white relative overflow-hidden font-sans">
       {/* Background decoration */}
       <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10"></div>
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-blue-500/5 rounded-full blur-3xl"></div>
@@ -27,7 +27,7 @@ export default function Hero() {
           </div>
           
           {/* Main heading with gradient text */}
-          <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold mb-8 leading-tight">
+          <h1 className="text-5xl sm:text-6xl md:text-7xl font-bold mb-8 leading-tight font-sans">
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-blue-100 to-white">
               Zero Core
             </span>
@@ -39,7 +39,7 @@ export default function Hero() {
           
           {/* Subtitle with animation */}
           <div className="relative">
-            <p className="text-xl sm:text-2xl md:text-3xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl sm:text-2xl md:text-3xl text-gray-300 mb-12 max-w-3xl mx-auto leading-relaxed font-sans">
               Creating innovative digital solutions
             </p>
             

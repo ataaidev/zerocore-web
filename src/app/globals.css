@@ -16,11 +16,23 @@
 
 html {
   scroll-behavior: smooth;
+  font-family: var(--font-roboto), 'Roboto', system-ui, sans-serif;
 }
 
 body {
   color: rgb(var(--foreground-rgb));
   background: rgb(var(--background-rgb));
+  font-family: var(--font-roboto), 'Roboto', system-ui, sans-serif;
+}
+
+/* Ensure all text elements use Roboto by default */
+h1, h2, h3, h4, h5, h6, p, span, div, a, button, input, textarea, label {
+  font-family: var(--font-roboto), 'Roboto', system-ui, sans-serif;
+}
+
+/* Code elements should use Roboto Mono */
+code, pre, kbd, samp {
+  font-family: var(--font-roboto-mono), 'Roboto Mono', monospace !important;
 }
 
 /* Custom styles for focus states */

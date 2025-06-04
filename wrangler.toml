@@ -1,16 +1,18 @@
 name = "zero-core-studio"
 compatibility_date = "2024-12-19"
 
+# Cloudflare Pages için build konfigürasyonu
 [build]
 command = "npm ci && npm run build"
 cwd = "."
-watch_dir = "src"
+watch_dir = ["src", "public"]
 
+# Static dosyalar için output dizini
 [build.upload]
 format = "directory"
-dir = ".next"
+dir = "out"
 
-# Force NPM usage
+# Environment variables
 [env]
 NODE_VERSION = "22.15.1"
 NPM_VERSION = "10.9.2"
@@ -23,4 +25,9 @@ NODE_ENV = "development"
 
 # Production environment  
 [env.production]
-NODE_ENV = "production" 
+NODE_ENV = "production"
+
+# Pages specific settings
+[pages]
+build_output_directory = "out"
+preview_directory = "out" 

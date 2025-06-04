@@ -6,8 +6,11 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "build:cf": "next build && next export",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "pages:build": "npm run build",
+    "pages:dev": "next dev"
   },
   "dependencies": {
     "next": "15.3.1",

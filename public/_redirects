@@ -1,0 +1,8 @@
+# SPA Fallback for client-side routing
+/*    /index.html   200
+
+# Ensure CSS files are properly handled  
+/_next/static/css/* /_next/static/css/:splat 200
+
+# Font files
+/_next/static/media/* /_next/static/media/:splat 200 

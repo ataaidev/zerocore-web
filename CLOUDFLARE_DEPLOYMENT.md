@@ -63,43 +63,124 @@ out/
 
 ## 🛠️ Sorun Giderme
 
-### 🚨 CSS Yüklenmiyor (Çözüldü!):
-**Sebep**: Cloudflare Pages Content-Type headers sorunu  
-**Çözüm**: 
-1. ✅ `public/_headers` dosyası eklendi (CSS için Content-Type)
-2. ✅ `public/_redirects` dosyası eklendi (Path routing)  
-3. ✅ Font dosyları için header'lar eklendi
+### 🚨 CSS/JS MIME Type Errors (CRITICAL FIX!)
 
-**Kontrol edilecekler**:
-1. `out/_headers` dosyasının var olduğunu kontrol edin
-2. Browser Dev Tools → Network → CSS dosyalarının **200 OK** döndüğünü kontrol edin
-3. Response headers'ta `Content-Type: text/css` olduğunu kontrol edin
-
-### 💾 Cache Temizleme:
-**Eğer CSS hala eski görünüyorsa**:
-1. Cloudflare Dashboard → domain → **Caching** → **Purge Everything**
-2. Browser hard refresh: `Ctrl+Shift+R` (Windows) / `Cmd+Shift+R` (Mac)  
-3. Browser Dev Tools açık → **Network** tab → **Disable cache** işaretle
-
-### 🔍 Debug Adımları:
-```bash
-# 1. Build output kontrol
-ls -la out/_headers out/_redirects
-
-# 2. CSS dosyaları var mı?
-ls -la out/_next/static/css/
-
-# 3. Font dosyaları var mı?  
-ls -la out/_next/static/media/
+**Symptoms:**
+```
+Refused to execute script from '<URL>' because its MIME type ('text/css') is not executable
 ```
 
-### 🌐 Live Test:
+**Root Cause**: Cloudflare Pages serving JS files with CSS Content-Type
+
+**Solution Applied**: ✅ Fixed with prioritized `_headers` rules
+
+**Testing After Deployment:**
+
+#### 1. Browser Developer Tools Test:
+```
+F12 → Network tab → Refresh page
+Check CSS files: Should show "text/css" Content-Type
+Check JS files: Should show "text/javascript" Content-Type
+```
+
+#### 2. Manual curl test:
 ```bash
-# CSS dosyasının content-type'ını test et
+# Test CSS file Content-Type
 curl -I https://zero-core.com/_next/static/css/[filename].css
 
-# Expected: Content-Type: text/css; charset=utf-8
+# Expected response:
+# Content-Type: text/css; charset=utf-8
+
+# Test JS file Content-Type  
+curl -I https://zero-core.com/_next/static/chunks/[filename].js
+
+# Expected response:
+# Content-Type: text/javascript; charset=utf-8
 ```
+
+#### 3. Browser Console Check:
+- Open Developer Tools (F12)
+- Refresh page
+- Check Console for errors
+- ✅ Should see NO MIME type errors
+- ✅ Should see Roboto fonts loading
+
+#### 4. Visual Verification:
+- Text should use **Roboto** font family
+- inspect element → Computed styles → font-family should show "Roboto"
+
+### 💾 Cache Clearing Steps:
+
+**If CSS still looks wrong after deployment:**
+
+#### Step 1: Cloudflare Cache
+1. Go to Cloudflare Dashboard
+2. Select your domain 
+3. **Caching** → **Purge Everything**
+4. Wait 2-3 minutes
+
+#### Step 2: Browser Cache  
+```
+Chrome: Ctrl+Shift+R (Windows) / Cmd+Shift+R (Mac)
+Firefox: Ctrl+F5 (Windows) / Cmd+Shift+R (Mac)
+Safari: Cmd+Option+R
+
+OR
+
+Hard refresh with Dev Tools open:
+F12 → Network tab → Right-click refresh → "Empty Cache and Hard Reload"
+```
+
+#### Step 3: Test in Incognito
+- Open incognito/private window
+- Visit https://zero-core.com
+- Should show correct Roboto fonts
+
+### 🔍 Quick Diagnostics:
+
+**Check 1**: _headers file deployed?
+```bash
+curl -I https://zero-core.com/_headers
+# Should return 200 OK
+```
+
+**Check 2**: CSS file Content-Type
+```bash
+curl -I https://zero-core.com/_next/static/css/*.css
+# Should show: Content-Type: text/css; charset=utf-8
+```
+
+**Check 3**: Browser Network tab
+```
+F12 → Network → Filter by CSS
+Refresh page
+Each CSS file status should be 200 OK
+Content-Type should be text/css
+```
+
+### ⚠️ Known Issues & Fixes:
+
+#### Issue: "runtime.lastError" messages
+**Status**: ✅ Normal - Browser extension messages, ignore
+
+#### Issue: JS served as CSS
+**Status**: ✅ Fixed - `_headers` priority rules added
+
+#### Issue: Fonts not loading
+**Status**: ✅ Fixed - Roboto integration completed
+
+#### Issue: CSS cache stale
+**Solution**: Purge Cloudflare cache + hard browser refresh
+
+### 🎯 Success Checklist:
+
+After deployment, verify:
+- [ ] ✅ No MIME type errors in console
+- [ ] ✅ CSS files load with `text/css` Content-Type
+- [ ] ✅ JS files load with `text/javascript` Content-Type  
+- [ ] ✅ Roboto font visible on page
+- [ ] ✅ No "runtime.lastError" (these are normal extension messages)
+- [ ] ✅ Page loads fast with proper caching headers
 
 ### Build Hataları:
 1. Node.js versiyonunu kontrol edin (22.15.1)
@@ -126,3 +207,21 @@ Deploy öncesi mutlaka kontrol edin:
 - [ ] `out/_redirects` var (SPA routing için)  
 - [ ] `out/_next/static/css/` klasöründe CSS dosyaları var
 - [ ] `out/index.html` Roboto font references içeriyor 
+
+## 🚀 Final Deployment Steps:
+
+1. `npm run build` - Local build
+2. Verify `out/_headers` exists
+3. Deploy to Cloudflare Pages  
+4. **Purge cache immediately after deploy**
+5. Test in incognito browser
+6. Check browser console for errors
+7. Verify Roboto fonts loading
+
+## 📞 Emergency Rollback:
+
+If critical issues occur:
+1. Cloudflare Pages → Deployments
+2. Select previous working deployment
+3. Click "Retry deployment" 
+4. Purge cache after rollback 

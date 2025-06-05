@@ -8,7 +8,7 @@ const nextConfig: NextConfig = {
   distDir: 'out',
   
   // Static dosyalar için optimizasyon
-  assetPrefix: './',
+  assetPrefix: '',
   
   // Image optimizasyonunu devre dışı bırak (static export için)
   images: {

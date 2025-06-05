@@ -5,7 +5,6 @@ const nextConfig: NextConfig = {
   output: 'export',
   trailingSlash: true,
   skipTrailingSlashRedirect: true,
-  distDir: 'build',
   
   // Static dosyalar için optimizasyon
   assetPrefix: '',

@@ -5,12 +5,12 @@
   "packageManager": "npm@10.9.2",
   "scripts": {
     "dev": "next dev",
-    "build": "next build && next export",
+    "build": "npm run build:css && next build",
+    "build:css": "tailwindcss -i src/app/globals.css -o out/static/styles.css",
     "start": "next start",
     "lint": "next lint",
-    "build:cloudflare": "next build && echo 'Build completed for Cloudflare Pages'",
     "preview": "next build && serve out",
-    "export": "next build && next export"
+    "export": "next build"
   },
   "dependencies": {
     "next": "15.3.1",

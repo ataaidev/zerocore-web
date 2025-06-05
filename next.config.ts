@@ -1,14 +1,16 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* Cloudflare Pages için optimizasyonlar */
+  /* True Static Export for Cloudflare Pages */
+  output: 'export',
   trailingSlash: true,
   skipTrailingSlashRedirect: true,
+  distDir: 'dist',
   
   // Static dosyalar için optimizasyon
   assetPrefix: '',
   
-  // Image optimizasyonunu devre dışı bırak (Cloudflare için)
+  // Image optimizasyonunu devre dışı bırak (static export için)
   images: {
     unoptimized: true,
   },

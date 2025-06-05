@@ -7,7 +7,10 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "build:cloudflare": "next build && echo 'Build completed for Cloudflare Pages'",
+    "preview": "next build && serve out",
+    "export": "next build && next export"
   },
   "dependencies": {
     "next": "15.3.1",

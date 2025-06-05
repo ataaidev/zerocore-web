@@ -1,27 +1,19 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
-    // Absolute and build-safe paths for Cloudflare Pages
+    // Simple and reliable paths for all environments
     "./src/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
+    
+    // Build environment compatibility
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
-    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./public/**/*.html",
     
-    // Build-time compatibility
-    "src/**/*.{js,ts,jsx,tsx,mdx}",
-    "components/**/*.{js,ts,jsx,tsx,mdx}",
-    
-    // Specific component files
+    // Specific files that definitely use Tailwind
     "./src/app/layout.tsx",
-    "./src/app/page.tsx", 
+    "./src/app/page.tsx",
     "./src/app/globals.css",
-    "./src/components/Hero.tsx",
-    "./src/components/Contact.tsx",
-    "./src/components/Footer.tsx",
   ],
   theme: {
     extend: {
@@ -37,7 +29,7 @@ export default {
   },
   plugins: [],
   
-  // Force include critical classes that might not be detected
+  // Comprehensive safelist to ensure all classes are included
   safelist: [
     // Essential layout classes
     'flex', 'flex-col', 'flex-grow', 'grid', 'grid-cols-1', 'grid-cols-3',

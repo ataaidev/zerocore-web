@@ -5,8 +5,8 @@
   "packageManager": "npm@10.9.2",
   "scripts": {
     "dev": "next dev",
-    "build": "npm run build:css && next build && next export",
-    "build:css": "tailwindcss -i src/app/globals.css -o out/static/styles.css",
+    "build": "next build && next export && npm run build:css",
+    "build:css": "tailwindcss -i src/app/globals.css -o out/static/styles.css --minify",
     "start": "next start",
     "lint": "next lint",
     "preview": "npm run build && serve out",

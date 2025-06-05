@@ -1,42 +1,18 @@
-# CSS files - MIME type fix for Cloudflare Pages
 /_next/static/css/*
   Content-Type: text/css; charset=utf-8
   Cache-Control: public, max-age=31536000, immutable
 
-# JavaScript files
 /_next/static/chunks/*
-  Content-Type: text/javascript; charset=utf-8
+  Content-Type: text/javascript; charset=utf-8  
   Cache-Control: public, max-age=31536000, immutable
 
-# Static export paths from out directory
-/out/_next/static/css/*
-  Content-Type: text/css; charset=utf-8
+/_next/static/media/*
   Cache-Control: public, max-age=31536000, immutable
 
-/out/_next/static/chunks/*
-  Content-Type: text/javascript; charset=utf-8
-  Cache-Control: public, max-age=31536000, immutable
-
-# All CSS files
-*.css
+/static/*
   Content-Type: text/css; charset=utf-8
   Cache-Control: public, max-age=86400
 
-# All JavaScript files  
-*.js
-  Content-Type: text/javascript; charset=utf-8
-  Cache-Control: public, max-age=86400
-
-# Font files
-*.woff2
-  Content-Type: font/woff2
-  Cache-Control: public, max-age=31536000, immutable
-
-*.woff
-  Content-Type: font/woff
-  Cache-Control: public, max-age=31536000, immutable
-
-# Security headers for all files
 /*
   X-Frame-Options: DENY
   X-Content-Type-Options: nosniff

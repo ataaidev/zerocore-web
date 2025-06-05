@@ -6,9 +6,6 @@ const __dirname = path.dirname(__filename);
 
 export default {
   plugins: {
-    tailwindcss: {
-      config: './tailwind.config.mjs'
-    },
-    autoprefixer: {},
+    "@tailwindcss/postcss": {},
   },
 };

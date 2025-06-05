@@ -5,7 +5,7 @@ const nextConfig: NextConfig = {
   output: 'export',
   trailingSlash: true,
   skipTrailingSlashRedirect: true,
-  distDir: 'dist',
+  distDir: 'out',
   
   // Static dosyalar için optimizasyon
   assetPrefix: '',
